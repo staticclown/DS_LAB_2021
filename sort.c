@@ -116,6 +116,7 @@ quicksort(arr,j+1,r);
 
 void merge(int arr[100],int start,int mid,int end)
 {int d;
+k=0;
     i=start;
     j=mid+1;
 
@@ -136,12 +137,7 @@ void merge(int arr[100],int start,int mid,int end)
         }
     }
     
-    while(i<=mid)
-    {
-        res[k++]=arr[i];
-        i++;
-        
-    }
+    
     
     
     while (j<=end)
@@ -149,11 +145,16 @@ void merge(int arr[100],int start,int mid,int end)
         res[k++]=arr[j];
         j++;
     }
+    while(i<=mid)
+    {
+        res[k++]=arr[i];
+        i++;   
+    }
     
      
     for(i=start,j=0;i<=end;i++,j++)
     {
-        c[i]=res[j];
+        arr[i]=res[j];
     }
     
 }
@@ -233,7 +234,7 @@ else if(ch==5)
 merge_sort(arr,0,lim-1);
 for ( i = 0; i < lim; i++)
     {
-    printf("\t %d",c[i]);
+    printf("\t %d",arr[i]);
     }
 }
 
